@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "All Books";
+}
+
+<div class="text-center">
+    <h1>All Books</h1>
+    <a asp-controller="Book" asp-action="NewBook">Add new</a>
+</div>
+
+<div align="center">
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Book ID</th>
+                <th>Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in ViewBag.books)
+            {
+            <tr>
+                <td>@book.Id</td>
+                <td>@book.Title</td>
+                <td>
+                    <a asp-controller="Book"
+                       asp-action="EditBook"
+                       asp-route-id="@book.Id">Edit</a>
+                    <a asp-controller="Book"
+                       asp-action="DeleteBook"
+                       asp-route-id="@book.Id">Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Edit Book";
+}
+
+<div class="text-center">
+    <h1>Edit Book</h1>
+</div>
+
+<div align="center">
+    <form method="POST">
+        <label>Title:</label>
+        <input hidden type="text" value="@ViewBag.book.Id" />
+        <input id="book-title" name="title" type="text" value="@ViewBag.book.Title" />
+        <input type="submit" />
+    </form>
+</div>

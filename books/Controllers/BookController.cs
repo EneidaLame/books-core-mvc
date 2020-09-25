@@ -14,7 +14,7 @@ namespace TestMVC.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            ViewBag.books = Book.getBooks();
+           
           
 
             return View();

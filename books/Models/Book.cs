@@ -20,15 +20,5 @@ namespace TestMVC.Models
             Title = title;
         }
 
-        public static List<Book> getBooks()
-        {
-            List<Book> books = new List<Book>();
-
-            books.Add(new Book(1, "The C Programming Language"));
-            books.Add(new Book(2, "C++ Bible"));
-
-            return books;
-        }
-
     }
 }

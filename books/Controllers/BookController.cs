@@ -11,6 +11,14 @@ namespace TestMVC.Controllers
 {
     public class BookController : Controller
     {
+
+        private readonly MySQLContext db;
+
+        public BookController(MySQLContext context)
+        {
+            db = context;
+        }
+
         // GET: /<controller>/
         public IActionResult Index()
         {
@@ -23,7 +31,7 @@ namespace TestMVC.Controllers
 
         public IActionResult All()
         {
-            MySQLContext db = new MySQLContext();
+            //MySQLContext db = new MySQLContext();
             ViewBag.books = db.Books.ToList();
             return View();
         }
@@ -36,7 +44,7 @@ namespace TestMVC.Controllers
         [HttpPost]
         public RedirectToActionResult NewBook(string title)
         {
-            MySQLContext db = new MySQLContext();
+            //MySQLContext db = new MySQLContext();
             Book book = new Book(title);
             db.Books.Add(book);
             db.SaveChanges();
@@ -47,7 +55,7 @@ namespace TestMVC.Controllers
         [HttpGet]
         public RedirectToActionResult DeleteBook(int id)
         {
-            MySQLContext db = new MySQLContext();
+            //MySQLContext db = new MySQLContext();
             Book book = db.Books.Find(id);
             db.Books.Remove(book);
             db.SaveChanges();
@@ -58,7 +66,7 @@ namespace TestMVC.Controllers
         [HttpGet]
         public IActionResult EditBook(int id)
         {
-            MySQLContext db = new MySQLContext();
+            //MySQLContext db = new MySQLContext();
             ViewBag.book = db.Books.Find(id);
 
             return View();
@@ -67,7 +75,7 @@ namespace TestMVC.Controllers
         [HttpPost]
         public RedirectToActionResult EditBook(int id, string title)
         {
-            MySQLContext db = new MySQLContext();
+            //MySQLContext db = new MySQLContext();
             Book book = db.Books.Find(id);
             book.Title = title;
             db.SaveChanges();

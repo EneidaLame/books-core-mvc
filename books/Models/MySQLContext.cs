@@ -13,12 +13,5 @@ namespace TestMVC.Models
 
         public MySQLContext(DbContextOptions<MySQLContext> options)
             : base(options) { }
-
-        /*
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseMySQL("server=localhost;database=example_books_dotnet;user=test;password=test");
-        }
-        */
     }
 }
